@@ -9,7 +9,7 @@ void encryption(char *input, char *key){
     char *encrypted = malloc((inputlen + 1) * sizeof(char));
     if (encrypted == NULL) {
         printf("Error.\n");
-        return;
+        exit(-1);
     }
 
 //Algorithm for encryption using Veginere cipher    
@@ -35,7 +35,7 @@ void decryption(char *encrypted, char *key){
     char *decrypted = malloc((inputlen + 1) * sizeof(char));
     if (decrypted == NULL) {
         printf("Error.\n");
-        return;
+        exit(-1);
     }
 
 // Algorithm for decryption using the opposite Veginere cipher

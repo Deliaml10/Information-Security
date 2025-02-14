@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h> 
 
-const char alphabet[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+-=[]{}|;:',.<>?/";
+const char alphabet[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
 void encryptionARRAY(char *input, char *key){
     int inputlen = strlen(input);

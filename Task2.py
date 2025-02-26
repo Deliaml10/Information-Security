@@ -93,28 +93,36 @@ root = tk.Tk()
 root.title("AES Encryption")
 root.geometry("500x400")
 
+#Default values of the window
 action_var = tk.StringVar(value="Encrypt")
 mode_var = tk.StringVar(value="ECB")
 
+#Place for writing the plaintext
 tk.Label(root, text="Text:").pack()
 text_entry = tk.Text(root, height=4, width=50)
 text_entry.pack()
 
+#Place for writing the key
 tk.Label(root, text="Key (16 characters):").pack()
 key_entry = tk.Entry(root, width=20)
 key_entry.pack()
 
+#Menu for the three encryption/decryption options
 tk.Label(root, text="Mode of operation:").pack()
 mode_menu = tk.OptionMenu(root, mode_var, "ECB", "CBC", "CFB")
 mode_menu.pack()
 
+#Menu for encrey or decrypt
 action_menu = tk.OptionMenu(root, action_var, "Encrypt", "Decrypt")
 action_menu.pack()
 
+#Execute button
 tk.Button(root, text="Execute", command=process).pack()
 
+#Label where the exit text is showed
 tk.Label(root, text="Result:").pack()
 result_entry = tk.Text(root, height=4, width=50)
 result_entry.pack()
 
+#Loop so that the program doesn't finish until the user close the window
 root.mainloop()

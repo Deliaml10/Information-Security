@@ -114,14 +114,23 @@ class CryptoApp:
         elif mode == "library":
             try:
                 #generar clave de cifrado Fernet
-                key = Fernet.generate_key()
+                key = self.key_entry.get().strip()
+                if not key:
+                    raise ValueError("Please enter a Fernet key.")
+
+                try:
+                    cipher_suite = Fernet(key.encode())
+                except Exception:
+                    raise ValueError("Invalid Fernet key format. Make sure it's base64 encoded.")
+
                 cipher_suite = Fernet(key)
+                #genera clave aleatoria y lo encripta en un solo bloque todo el texto
                 encrypted_text = cipher_suite.encrypt(text.encode()).decode()
 
                 #guardar en el archivo sin borrar los datos anteriores
                 with open("encrypted_data.txt", "a") as f:
                     f.write(f"Ciphertext: {encrypted_text}\n")
-                    f.write(f"Key: {key.decode()}\n")
+                    f.write(f"Key: {key}\n")
 
                 result = f"Fernet Ciphertext:  {encrypted_text}"
 
